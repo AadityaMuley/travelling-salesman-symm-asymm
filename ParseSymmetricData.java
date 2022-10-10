@@ -24,7 +24,7 @@ public class ParseSymmetricData {
 			sc.close();
 		}
 		catch(Exception e) {
-			System.out.println("Error: " + e.getMessage());
+			System.out.println("Error in dimension: " + e.getMessage());
 		}
 	}
 
@@ -39,16 +39,17 @@ public class ParseSymmetricData {
 				if(currWord.equalsIgnoreCase("NODE_COORD_SECTION")) {
 					for(int i=0; i<arrLen; i++) {
 						sc.next();
-						coords[arrLen][0] = Float.parseFloat(sc.next());
-						coords[arrLen][1] = Float.parseFloat(sc.next());
+						coords[i][0] = Float.parseFloat(sc.next());
+						coords[i][1] = Float.parseFloat(sc.next());
 					}
+					break;
 				}
         	}
 
 			sc.close();
 		}
 		catch(Exception e) {
-			System.out.println("Error: " + e.getMessage());
+			System.out.println("Error in coords: " + e.getMessage());
 		}
 	}
 	public static void main(String[] args) throws Exception {
@@ -61,8 +62,8 @@ public class ParseSymmetricData {
 			coords = new float[arrLen][2];
         	getCoords(file);
 			for(int i=0; i<arrLen; i++) {
-				System.out.print(i+1 + " " + coords[arrLen][0] + " ");
-				System.out.println(coords[arrLen][1]);
+				System.out.print(i+1 + " " + coords[i][0] + " ");
+				System.out.println(coords[i][1]);
 			}
         }
 		catch(Exception e) {
