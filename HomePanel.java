@@ -17,6 +17,7 @@ public class HomePanel implements ActionListener {
         asymmButton = new JButton("Asymmetric Data");
 
         symmButton.addActionListener(this);
+        asymmButton.addActionListener(this);
 
         panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
         panel.add(symmButton);
@@ -37,6 +38,7 @@ public class HomePanel implements ActionListener {
         }
         if(e.getSource() == asymmButton) {
             AsymmetricMain asymmetricMain = new AsymmetricMain();
+            asymmetricMain.parseAsymmData();
         }
     }
     public static void main(String[] args) {

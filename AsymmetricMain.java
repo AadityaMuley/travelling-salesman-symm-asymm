@@ -1,7 +1,9 @@
+import java.io.File;
+
 public class AsymmetricMain {
 
-    public static void main(String[] args) {
-        
+    public void parseAsymmData() {
+        System.out.println("Implement asymm code here - refer SymmetricMain - use ParseAsymmetricData for actual parsing functions");
     }
     
 }
