@@ -1,26 +1,45 @@
-import javax.swing.JFrame;  
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*; 
 
-import java.awt.BorderLayout;
+public class HomePanel implements ActionListener {
 
-import javax.swing.BorderFactory;
-
-public class HomePanel {
+    private JFrame frame;
+    private JPanel panel;
+    private JButton symmButton;
+    private JButton asymmButton;
 
     HomePanel() {
-        JFrame f = new JFrame();
-        JPanel p = new JPanel();
+        frame = new JFrame();
+        panel = new JPanel();
 
-        p.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
+        symmButton = new JButton("Symmetric Data");
+        asymmButton = new JButton("Asymmetric Data");
+
+        symmButton.addActionListener(this);
+
+        panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
+        panel.add(symmButton);
+        panel.add(asymmButton);
         
-        f.add(p, BorderLayout.CENTER);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.setTitle("Travelling Salesman Problem - Symmetric and Asymmetric data");
-        f.pack();
-        f.setVisible(true);
+        frame.add(panel, BorderLayout.CENTER);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setTitle("Travelling Salesman Problem - Symmetric and Asymmetric data");
+        frame.pack();
+        frame.setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == symmButton) {
+            SymmetricMain symmetricMain = new SymmetricMain();
+            symmetricMain.parseSymmData();
+        }
+        if(e.getSource() == asymmButton) {
+            AsymmetricMain asymmetricMain = new AsymmetricMain();
+        }
     }
     public static void main(String[] args) {
-        
-        
+        new HomePanel();
     }
 }

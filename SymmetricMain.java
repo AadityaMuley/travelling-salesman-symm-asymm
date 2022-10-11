@@ -1,10 +1,10 @@
 import java.io.File;
 
 public class SymmetricMain {
-    public static int arrLen;
-	public static float[][] coords;
+    private int arrLen;
+	private float[][] coords;
 
-    public static void main(String[] args) {
+    public void parseSymmData() {
         try {
             File file = new File("data/symmetric/djibouti.tsp");
 
@@ -22,5 +22,5 @@ public class SymmetricMain {
 		catch(Exception e) {
 			System.out.println("Error: " + e.getMessage());
 		}
-	}
+    }
 }
