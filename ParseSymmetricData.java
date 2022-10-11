@@ -1,12 +1,9 @@
 import java.io.File;
 import java.util.Scanner;
 
-public class ParseSymmetricData {
+public class ParseSymmetricData implements ParseData {
 
-	public static int arrLen;
-	public static float[][] coords;
-
-	public static void getDimension(File file) {
+	public int getDimension(File file) {
 		try {
 			Scanner sc = new Scanner(file);
 
@@ -16,8 +13,8 @@ public class ParseSymmetricData {
 
 				if(currWord.equalsIgnoreCase("DIMENSION:")) {
 					String len = sc.next();
-					arrLen = Integer.parseInt(len);
-					break;
+					sc.close();
+					return(Integer.parseInt(len));
 				}
         	}
 
@@ -26,9 +23,12 @@ public class ParseSymmetricData {
 		catch(Exception e) {
 			System.out.println("Error in dimension: " + e.getMessage());
 		}
+		return(0);
 	}
 
-	public static void getCoords(File file) {
+	public float[][] getCoords(File file, int arrLen) {
+		float coords[][] = new float[arrLen][2];
+
 		try {
 			Scanner sc = new Scanner(file);
 
@@ -42,7 +42,8 @@ public class ParseSymmetricData {
 						coords[i][0] = Float.parseFloat(sc.next());
 						coords[i][1] = Float.parseFloat(sc.next());
 					}
-					break;
+					sc.close();
+					return(coords);
 				}
         	}
 
@@ -51,23 +52,6 @@ public class ParseSymmetricData {
 		catch(Exception e) {
 			System.out.println("Error in coords: " + e.getMessage());
 		}
+		return(coords);
 	}
-	public static void main(String[] args) throws Exception {
-
-        try {
-            File file = new File("data/symmetric/djibouti.tsp");
-			getDimension(file);
-			//System.out.println(arrLen);
-
-			coords = new float[arrLen][2];
-        	getCoords(file);
-			for(int i=0; i<arrLen; i++) {
-				System.out.print(i+1 + " " + coords[i][0] + " ");
-				System.out.println(coords[i][1]);
-			}
-        }
-		catch(Exception e) {
-			System.out.println("Error: " + e.getMessage());
-		}
-    }
 }
