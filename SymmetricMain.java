@@ -6,7 +6,7 @@ public class SymmetricMain {
 
     public void parseSymmData() {
         try {
-            File file = new File("data/symmetric/djibouti.tsp");
+            File file = new File("data/symmetric/symmetric_data.tsp");
 
             ParseSymmetricData parseSymmetricData = new ParseSymmetricData();
 			arrLen = parseSymmetricData.getDimension(file);
