@@ -34,11 +34,11 @@ public class HomePanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == symmButton) {
             SymmetricMain symmetricMain = new SymmetricMain();
-            symmetricMain.parseSymmData();
+            symmetricMain.symmetricPanel();
         }
         if(e.getSource() == asymmButton) {
             AsymmetricMain asymmetricMain = new AsymmetricMain();
-            asymmetricMain.parseAsymmData();
+            asymmetricMain.asymmetricPanel();
         }
     }
     public static void main(String[] args) {
