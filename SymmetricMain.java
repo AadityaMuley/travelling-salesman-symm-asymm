@@ -3,24 +3,20 @@ import java.io.File;
 public class SymmetricMain {
     private int arrLen;
 	private float[][] coords;
+	private float[][] shortestPath;
+	private double totalDistance;
 
-    public void parseSymmData() {
-        try {
-            File file = new File("data/symmetric/symmetric_data.tsp");
+	public void symmetricPanel() {
+		ParseSymmetricData parseSymmetricData = new ParseSymmetricData();
+		coords = parseSymmetricData.parseSymmData();
+		this.arrLen = parseSymmetricData.arrLen;
+		// for(int i=0; i<arrLen; i++) {
+		// 		System.out.println(i+1 + " " + coords[i][0] + " " + coords[i][1]);
+		// 	}
 
-            ParseSymmetricData parseSymmetricData = new ParseSymmetricData();
-			arrLen = parseSymmetricData.getDimension(file);
-			//System.out.println(arrLen);
-
-			coords = new float[arrLen][2];
-        	coords = parseSymmetricData.getCoords(file, arrLen);
-			for(int i=0; i<arrLen; i++) {
-				System.out.print(i+1 + " " + coords[i][0] + " ");
-				System.out.println(coords[i][1]);
-			}
-        }
-		catch(Exception e) {
-			System.out.println("Error: " + e.getMessage());
-		}
-    }
+		TSPGreedy tspGreedy = new TSPGreedy();
+		shortestPath = tspGreedy.greedyShortestPath(arrLen, coords);
+		totalDistance = tspGreedy.totalDistance;
+		// System.out.println(this.totalDistance);
+	}
 }

@@ -3,6 +3,9 @@ import java.util.Scanner;
 
 public class ParseSymmetricData implements ParseData {
 
+	public int arrLen;
+	public float[][] coords;
+
 	public int getDimension(File file) {
 		try {
 			Scanner sc = new Scanner(file);
@@ -54,4 +57,25 @@ public class ParseSymmetricData implements ParseData {
 		}
 		return(coords);
 	}
+
+	public float[][] parseSymmData() {
+        try {
+            File file = new File("data/symmetric/symmetric_data.tsp");
+			arrLen = getDimension(file);
+			//System.out.println(arrLen);
+
+			coords = new float[arrLen][2];
+        	coords = getCoords(file, arrLen);
+			// for(int i=0; i<arrLen; i++) {
+			// 	System.out.println(i+1 + " " + coords[i][0] + " " + coords[i][1]);
+			// }
+
+			return(coords);
+        }
+		catch(Exception e) {
+			System.out.println("Error: " + e.getMessage());
+			coords = new float[0][0];
+			return(coords);
+		}
+    }
 }
