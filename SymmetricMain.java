@@ -10,13 +10,17 @@ public class SymmetricMain {
 
 	private JFrame symmetricFrame;
     private JPanel symmetricPanel;
+	private JScrollPane scrollSymmetricView;
+
 	private JLabel totalDistanceLabel;
-	private JLabel shortestPathLabel;
+	private JLabel[] shortestPathLabel;
+	private JLabel path;
 
 	public void symmetricPanel() {
 
 		symmetricFrame = new JFrame();
 		symmetricPanel = new JPanel();
+		scrollSymmetricView = new JScrollPane(symmetricPanel);
 		symmetricPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
 		symmetricPanel.setLayout(new GridLayout(0, 1));
 
@@ -47,17 +51,19 @@ public class SymmetricMain {
 		
 		totalDistanceLabel = new JLabel();
 		totalDistanceLabel.setText("Total distance travelled: " + Float.toString(totalDistance));
-
-		shortestPathLabel = new JLabel();
-		String finalPath = Integer.toString(shortestPath[0]);
-		for(int i=1; i<arrLen; i++) {
-			finalPath = finalPath + " --> " + Integer.toString(shortestPath[i]);
-		}
-		shortestPathLabel.setText(finalPath);
-
 		symmetricPanel.add(totalDistanceLabel);
-		symmetricPanel.add(shortestPathLabel);
 
+		path = new JLabel();
+		path.setText("The shortest path is: ");
+		symmetricPanel.add(path);
+		shortestPathLabel = new JLabel[arrLen];
+		for(int i=0; i<arrLen; i++) {
+			shortestPathLabel[i] = new JLabel();
+			shortestPathLabel[i].setText(Integer.toString(shortestPath[i]));
+			symmetricPanel.add(shortestPathLabel[i]);
+		}
+		
+		symmetricFrame.add(scrollSymmetricView);
 		symmetricFrame.add(symmetricPanel, BorderLayout.WEST);
         symmetricFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         symmetricFrame.setTitle("Travelling Salesman Problem - Symmetric");
