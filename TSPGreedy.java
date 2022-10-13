@@ -1,14 +1,34 @@
-import java.util.*;
-
 public class TSPGreedy {
 
-    public double totalDistance;
+    public float totalDistance = 0.0f;
+	public int[] shortestPath;
+
+	private boolean[] visitedCities;
     
-    public float[][] greedyShortestPath(int arrLen, float coords[][]) {
-        float shortestPath[][] = new float[arrLen][2];
+    public int[] greedyShortestPath(float symmetricDistances[][], int arrLen) {
+        
+		visitedCities = new boolean[arrLen];
+		shortestPath = new int[arrLen];
+		visitedCities[0] = true;
+		shortestPath[0] += 1;
 
-        totalDistance = 9.0;
+		float tempShortestDistance;
+		int nxtCity = 0;
+		int i,j, k=1;
+		for(i=0; i<arrLen-1; i++) {
+			tempShortestDistance = 0.0f;
+			for(j=0; j<arrLen; j++) {
+				if(visitedCities[j] == false && tempShortestDistance<symmetricDistances[i][j]) {
+					tempShortestDistance = symmetricDistances[i][j];
+					nxtCity = j;
+				}
+			}
+			totalDistance += tempShortestDistance;
+			shortestPath[k] += nxtCity+1;
+			k++;
+			visitedCities[nxtCity] = true;
+		}
 
-        return(shortestPath);
+		return(shortestPath);
     }
 }

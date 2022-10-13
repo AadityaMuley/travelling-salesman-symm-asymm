@@ -20,6 +20,7 @@ public class HomePanel implements ActionListener {
         asymmButton.addActionListener(this);
 
         panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
+        panel.setLayout(new GridLayout(0,1));
         panel.add(symmButton);
         panel.add(asymmButton);
         
