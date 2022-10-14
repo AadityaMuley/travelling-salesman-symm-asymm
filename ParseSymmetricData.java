@@ -1,11 +1,21 @@
 import java.io.File;
 import java.util.Scanner;
 
+/**
+ * ParseSymmetricData is a child class of ParseData which handles processing
+ * of symmetric data.
+ * @author Aditya Mule, Manasi Anantpurkar, Jash Kahar, Sarthak Vats
+ */
 public class ParseSymmetricData implements ParseData {
 
 	public int arrLen;
 	public float[][] coords;
-
+	
+	/**
+	 * This fucntion is used to read the input data.
+	 * @param file is the input file which contains the raw data.
+	 * @return the dimension of the file.
+	 */
 	public int getDimension(File file) {
 		try {
 			Scanner sc = new Scanner(file);
@@ -29,6 +39,11 @@ public class ParseSymmetricData implements ParseData {
 		return(0);
 	}
 
+	/** This function is used to get the coordinates of the points in the data.
+	 * @param file is the input data file
+	 * @param arrLen is the dimension of file.
+	 * @return coordinates in a matrix format.
+	 */
 	public float[][] getCoords(File file, int arrLen) {
 		float coords[][] = new float[arrLen][2];
 
@@ -58,6 +73,9 @@ public class ParseSymmetricData implements ParseData {
 		return(coords);
 	}
 
+	/** This function loads the file which contains the input data.
+	 * @return coordinates in a matrix format.
+	 */
 	public float[][] parseSymmData() {
         try {
             File file = new File("data/symmetric/symmetric_data.tsp");
