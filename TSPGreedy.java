@@ -1,7 +1,7 @@
 
 /**
  * TSPGreedy is the Traveling Salesman solver class 
- * @author Aditya Muley(amuley2), Manasi Anantpurkar(manantpu@asu.edu), Jash Kahar(jkahar@asu.edu), Sarthak Vats(svats2@asu.edu)
+ * @author Aditya Muley(amuley2@asu.edu), Manasi Anantpurkar(manantpu@asu.edu), Jash Kahar(jkahar@asu.edu), Sarthak Vats(svats2@asu.edu)
  */
 public class TSPGreedy {
 	public float totalDistance = 0.0f;
