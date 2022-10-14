@@ -1,5 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
+/**
+ * AsymmetricMain is the class that controls all operations of the Asymmetric DataSet. It displays 
+ * the traversal order of nodes and the total distance travelled.
+ * @author Aditya Muley(amuley2@asu.edu), Manasi Anantpurkar(manantpu@asu.edu), Jash Kahar(jkahar@asu.edu), Sarthak Vats(svats2@asu.edu)
+ */
 
 public class AsymmetricMain {
 
