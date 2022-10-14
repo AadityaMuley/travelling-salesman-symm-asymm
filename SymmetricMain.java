@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SymmetricMain {
+
     private int arrLen;
 	private float[][] coords;
 	private float[][] symmetricDistances;
@@ -75,9 +76,10 @@ public class SymmetricMain {
 		scrollSymmetricView = new JScrollPane(symmetricPanel, 
 			ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, 
 			ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		symmetricFrame.add(scrollSymmetricView);
 		//scrollSymmetricView.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		//symmetricFrame.add(symmetricPanel, BorderLayout.WEST);
-		symmetricFrame.add(scrollSymmetricView);
+		
         symmetricFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         symmetricFrame.setTitle("Travelling Salesman Problem - Symmetric");
         symmetricFrame.pack();
