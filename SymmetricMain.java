@@ -1,5 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
+/**
+ * SymmetricMain is the class that controls all operations of the Symmetric DataSet. It displays the plot of all city coordinates, 
+ * the traversal order of nodes, and the total distance travelled.
+ * @author Aditya Muley(amuley2@asu.edu), Manasi Anantpurkar(manantpu@asu.edu), Jash Kahar(jkahar@asu.edu), Sarthak Vats(svats2@asu.edu)
+ */
 
 public class SymmetricMain extends JFrame{
 
@@ -18,6 +23,10 @@ public class SymmetricMain extends JFrame{
 	private JLabel path;
 
 	private Plot plot;
+	/**
+    	* Symmetric Main calls the Plot class to display all city coordinates as points on a map. 
+	* It creates a new grid for mapping the coordinates of cities on the interface. 
+	*/
 	SymmetricMain() {
 		this.plot = new Plot();
 
@@ -36,6 +45,12 @@ public class SymmetricMain extends JFrame{
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	}
 
+	/**
+    	* SymmetricPanel class uses a new interface. It called ParseSymmetric Data class to obtain the input data in matrix type.
+	* It calls TSPGreedy class to implement the logic on the given matrix and then displays total distance and path in which it traverses.
+	* The path is displayed in a scrollable window in the Panel.
+	*/ 
+	
 	public void symmetricPanel() {
 
 		symmetricFrame = new JFrame();
@@ -49,27 +64,14 @@ public class SymmetricMain extends JFrame{
 		this.arrLen = parseSymmetricData.arrLen;
 		plot.setCoords(coords);
 		plot.repaint();
-		// for(int i=0; i<arrLen; i++) {
-		// 		System.out.println(i+1 + " " + coords[i][0] + " " + coords[i][1]);
-		// 	}
-
+		
 		SymmetricDistanceCalculate symmetricDistanceCalculate = new SymmetricDistanceCalculate();
 		symmetricDistances = symmetricDistanceCalculate.calculateDistances(arrLen, coords);
-		// for(int i=0; i<arrLen; i++) {
-		// 	for(int j=0; j<arrLen; j++){
-		// 		System.out.print(symmetricDistances[i][j] + "            ");
-		// 	}
-		// 	System.out.println();
-		// }
 
 		TSPGreedy tspGreedy = new TSPGreedy();
 		shortestPath = new int[arrLen];
 		shortestPath = tspGreedy.greedyShortestPath(symmetricDistances, arrLen);
 		totalDistance = tspGreedy.totalDistance;
-		// System.out.println(this.totalDistance);
-		// for(int i: shortestPath) {
-		// 	System.out.println(i);
-		// }
 		
 		totalDistanceLabel = new JLabel();
 		totalDistanceLabel.setText("Total distance travelled: " + Float.toString(totalDistance));
@@ -87,20 +89,11 @@ public class SymmetricMain extends JFrame{
 		shortestPathLabel = new JLabel(shortestPathString);
 		shortestPathLabel.setFont(new Font("Serif", Font.PLAIN, 14));
 		symmetricPanel.add(shortestPathLabel);
-		// shortestPathLabel = new JLabel[arrLen];
-		// for(int i=0; i<arrLen; i++) {
-		// 	shortestPathLabel[i] = new JLabel();
-		// 	shortestPathLabel[i].setText(Integer.toString(shortestPath[i]));
-		// 	shortestPathLabel[i].setFont(new Font("Serif", Font.PLAIN, 14));
-		// 	symmetricPanel.add(shortestPathLabel[i]);
-		// }
 		
 		scrollSymmetricView = new JScrollPane(symmetricPanel, 
 			ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, 
 			ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		symmetricFrame.add(scrollSymmetricView);
-		//scrollSymmetricView.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		//symmetricFrame.add(symmetricPanel, BorderLayout.WEST);
 		
         symmetricFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         symmetricFrame.setTitle("Travelling Salesman Problem - Symmetric");
