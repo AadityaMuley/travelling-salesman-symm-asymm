@@ -1,6 +1,6 @@
 import java.io.File;
 /** ParseData is an Interface class 
- * @author Aditya Mule, Manasi Anantpurkar, Jash Kahar, Sarthak Vats
+ * @author Aditya Muley(amuley2@asu.edu), Manasi Anantpurkar, Jash Kahar, Sarthak Vats
  */
 public interface ParseData {
     

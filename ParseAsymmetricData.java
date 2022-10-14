@@ -2,7 +2,7 @@ import java.io.File;
 import java.util.Scanner;
 
 /** ParseAsymmetricData implements ParseData which handles processing of asymmetric data.
- * @author Aditya Mule, Manasi Anantpurkar, Jash Kahar, Sarthak Vats
+ * @author Aditya Muley(amuley2@asu.edu), Manasi Anantpurkar, Jash Kahar, Sarthak Vats
  */
 
 public class ParseAsymmetricData implements ParseData {

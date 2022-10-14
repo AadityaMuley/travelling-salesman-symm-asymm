@@ -6,7 +6,7 @@ import java.awt.event.*;
  * Assignment 02 TSP Solver CSE 564
  * Professor : Javier Gonzalez-Sanchez
  * 
- * @author Aaditya Muley, Manasi Anantpurkar, Jash Kahar, Sarthak Vatss
+ * @author Aditya Muley(amuley2@asu.edu), Manasi Anantpurkar, Jash Kahar, Sarthak Vatss
  * */
 
 public class HomePanel implements ActionListener {
