@@ -2,8 +2,7 @@ import java.io.File;
 import java.util.Scanner;
 
 /**
- * ParseSymmetricData is a child class of ParseData which handles processing
- * of symmetric data.
+ * ParseSymmetricData implements ParseData which handles processing of symmetric data.
  * @author Aditya Muley(amuley2@asu.edu), Manasi Anantpurkar(manantpu@asu.edu), Jash Kahar(jkahar@asu.edu), Sarthak Vats(svats2@asu.edu)
  */
 public class ParseSymmetricData implements ParseData {
