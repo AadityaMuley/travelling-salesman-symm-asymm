@@ -16,7 +16,7 @@ public class AsymmetricMain {
 	private JLabel shortestPathLabel;
     private JLabel path;
 	/**
-    	* AsymmetricMain class uses a new interface. It called ParseAsymmetric Data class to obtain the input data in matrix type.
+    	* AsymmetricPanel class uses a new interface. It called ParseAsymmetric Data class to obtain the input data in matrix type.
 	* It calls TSPGreedy class to implement the logic on the given matrix and then displays total distance and path in which it traverses.
 	* The path is displayed in a scrollable window in the Panel.
 	*/ 
