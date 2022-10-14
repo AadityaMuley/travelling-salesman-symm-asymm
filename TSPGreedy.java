@@ -1,10 +1,18 @@
+
+/**
+ * TSPGreedy is the Traveling Salesman solver class 
+ * @author Aditya Muley(amuley2), Manasi Anantpurkar(manantpu@asu.edu), Jash Kahar(jkahar@asu.edu), Sarthak Vats
+ */
 public class TSPGreedy {
-
-    public float totalDistance = 0.0f;
+	public float totalDistance = 0.0f;
 	public int[] shortestPath;
-
 	private boolean[] visitedCities;
-    
+	
+	/** This function uses greedy approach to solve the TSP.
+	 * @param symmetricDistances is the distance matrix
+	 * @param arrLen dimension of the input.
+	 * @return the result which is an array of the cities in the order of traversal.
+	 */
     public int[] greedyShortestPath(float symmetricDistances[][], int arrLen) {
         
 		visitedCities = new boolean[arrLen];
