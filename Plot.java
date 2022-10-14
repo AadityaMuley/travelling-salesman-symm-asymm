@@ -2,6 +2,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
+/**
+ * Plot is the class that scales the coordinates of points to fit all of them in the plotted interface. It also calculates the 
+ * minimum and maximum x and y coordinates of the map.
+ * @author Aditya Muley(amuley2@asu.edu), Manasi Anantpurkar(manantpu@asu.edu), Jash Kahar(jkahar@asu.edu), Sarthak Vats(svats2@asu.edu)
+ */
+
 public class Plot extends JPanel {
     private static final double X_AXIS = 20.0;
     private static final double Y_AXIS = 20.0;
@@ -11,12 +17,20 @@ public class Plot extends JPanel {
 
     private float[][] coords;
 
+    /**
+    * Plot sets the background and border of the mapping section in GUI.
+    */
     public Plot() {
         setBackground(Color.decode("#000000"));
         setBorder(BorderFactory.createLineBorder(Color.decode("#ebcd4b")));
     }
 
     @Override
+    /**
+     * paintComponent calculates the scaling factors of x and y coordinates. It then parses through all the coordinates
+     * and then scales each of them to fit in the graphic interface. It then plots these scaled values on the graphics interface.
+     * @param g inputs the graphical interface on which the points are to be plotted.
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         System.out.println("In paintComponent");
@@ -34,6 +48,11 @@ public class Plot extends JPanel {
             }
         }
     }
+    
+    /**
+     * setCoords class defines the maximum and minimum value of x and y to create a box in which all points should lie.
+     * @param coords is the matrix that contains coordinates of all nodes.
+     */
     
     public void setCoords(float coords[][]) {
         this.coords = coords;

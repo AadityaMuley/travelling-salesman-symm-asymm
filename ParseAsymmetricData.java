@@ -1,11 +1,19 @@
 import java.io.File;
 import java.util.Scanner;
 
-public class ParseAsymmetricData implements ParseData {
+/** ParseAsymmetricData implements ParseData which handles processing of asymmetric data.
+ * @author Aditya Mule, Manasi Anantpurkar, Jash Kahar, Sarthak Vats
+ */
 
-    public int arrLen;
+public class ParseAsymmetricData implements ParseData {
+	public int arrLen;
 	public float[][] coords;
 
+	/**
+	 * This fucntion is used to read the input data.
+	 * @param file is the input file which contains the raw data.
+	 * @return the dimension of the file.
+	 */
 	public int getDimension(File file) {
 		try {
 			Scanner sc = new Scanner(file);
@@ -28,7 +36,13 @@ public class ParseAsymmetricData implements ParseData {
 		}
 		return(0);
 	}
-
+	
+	/**
+	 * This function is used to get the coordinates of the points in the data.
+	 * @param file is the input data file
+	 * @param arrLen is the dimension of file.
+	 * @return coordinates in a matrix format.
+	 */
 	public float[][] getCoords(File file, int arrLen) {
 		float coords[][] = new float[arrLen][arrLen];
 
@@ -62,6 +76,10 @@ public class ParseAsymmetricData implements ParseData {
 		return(coords);
 	}
 
+	/**
+	 * This function loads the file which contains the input data.
+	 * @return coordinates in a matrix format.
+	 */
 	public float[][] parseAsymmData() {
         try {
             File file = new File("data/asymmetric/asymmetric_data.txt");

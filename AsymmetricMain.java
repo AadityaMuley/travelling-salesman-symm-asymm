@@ -1,5 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
+/**
+ * AsymmetricMain is the class that controls all operations of the Asymmetric DataSet. It displays 
+ * the traversal order of nodes and the total distance travelled.
+ * @author Aditya Muley(amuley2@asu.edu), Manasi Anantpurkar(manantpu@asu.edu), Jash Kahar(jkahar@asu.edu), Sarthak Vats(svats2@asu.edu)
+ */
 
 public class AsymmetricMain {
 
@@ -15,7 +20,11 @@ public class AsymmetricMain {
 	private JLabel totalDistanceLabel;
 	private JLabel shortestPathLabel;
     private JLabel path;
-
+	/**
+    	* AsymmetricPanel class uses a new interface. It called ParseAsymmetric Data class to obtain the input data in matrix type.
+	* It calls TSPGreedy class to implement the logic on the given matrix and then displays total distance and path in which it traverses.
+	* The path is displayed in a scrollable window in the Panel.
+	*/ 
 	public void asymmetricPanel() {
 
 		asymmetricFrame = new JFrame();
@@ -26,24 +35,11 @@ public class AsymmetricMain {
 		ParseAsymmetricData parseAsymmetricData = new ParseAsymmetricData();
 		asymmetricDistances = parseAsymmetricData.parseAsymmData();
 		this.arrLen = parseAsymmetricData.arrLen;
-		// for(int i=0; i<arrLen; i++) {
-		// 		System.out.println(i+1 + " " + asymmetricDistances[i][0] + " " + asymmetricDistances[i][1]);
-		// 	}
-		// for(int i=0; i<arrLen; i++) {
-		// 	for(int j=0; j<arrLen; j++){
-		// 		System.out.print(symmetricDistances[i][j] + "            ");
-		// 	}
-		// 	System.out.println();
-		// }
 
 		TSPGreedy tspGreedy = new TSPGreedy();
 		shortestPath = new int[arrLen];
 		shortestPath = tspGreedy.greedyShortestPath(asymmetricDistances, arrLen);
 		totalDistance = tspGreedy.totalDistance;
-		// System.out.println(this.totalDistance);
-		// for(int i: shortestPath) {
-		// 	System.out.println(i);
-		// }
 		
 		totalDistanceLabel = new JLabel();
 		totalDistanceLabel.setText("Total distance travelled: " + Float.toString(totalDistance));
@@ -66,7 +62,6 @@ public class AsymmetricMain {
 			ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, 
 			ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         asymmetricFrame.add(scrollSymmetricView);
-		// asymmetricFrame.add(asymmetricPanel, BorderLayout.WEST);
         
         asymmetricFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         asymmetricFrame.setTitle("Travelling Salesman Problem - Asymmetric");

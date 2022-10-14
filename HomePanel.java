@@ -2,27 +2,27 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*; 
 
+/**
+ * Assignment 02 TSP Solver CSE 564
+ * Professor : Javier Gonzalez-Sanchez
+ * 
+ * @author Aaditya Muley, Manasi Anantpurkar, Jash Kahar, Sarthak Vatss
+ * */
+
 public class HomePanel implements ActionListener {
 
     private JFrame frame;
     private JPanel panel;
     private JButton symmButton;
     private JButton asymmButton;
-
-    // private Plot plot;
+    /**
+         * HomePanel class creates a new interface for the entire traveling salesman problem system. 
+         * It creates two buttons for symmetric and asymmetric datasets and defines the properties for the interface.
+     */
 
     HomePanel() {
         frame = new JFrame();
         panel = new JPanel();
-
-        // GridBagConstraints constraints = new GridBagConstraints();
-        // plot = new Plot();
-        // frame.setLayout(new GridBagLayout());
-        // constraints.fill = GridBagConstraints.BOTH;
-        // constraints.weightx = 1.0; constraints.weighty = 1.0;
-        // constraints.gridx = 0; constraints.gridy = 1; constraints.gridwidth = 2;
-        // constraints.insets = new Insets(5,10,5,10);
-        // frame.add(plot, constraints);
 
         symmButton = new JButton("Symmetric Data");
         asymmButton = new JButton("Asymmetric Data");
@@ -41,13 +41,14 @@ public class HomePanel implements ActionListener {
         frame.pack();
         frame.setVisible(true);
     }
-
+    /**
+         * ActionPerformed redirects the system according to the button clicked.
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == symmButton) {
             SymmetricMain symmetricMain = new SymmetricMain();
             symmetricMain.symmetricPanel();
-            // plot.repaint();
         }
         if(e.getSource() == asymmButton) {
             AsymmetricMain asymmetricMain = new AsymmetricMain();
