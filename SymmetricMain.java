@@ -39,7 +39,7 @@ public class SymmetricMain extends JFrame{
         constraints.insets = new Insets(5,10,5,10);
         add(plot, constraints);
 
-		setSize(1300, 1000);
+		setSize(1300, 2000);
 		setLocationRelativeTo(null);
 		setVisible(true);
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
