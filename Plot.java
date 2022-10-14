@@ -44,7 +44,7 @@ public class Plot extends JPanel {
             for (float city[] : coords) {
                 double x1 = (city[0] - min_x_axis) * scaleX + X_AXIS - POINT_DIAMETER / 2;
                 double y1 = (city[1] - min_y_axis) * scaleY + Y_AXIS - POINT_DIAMETER / 2;
-                g2D.fill(new Ellipse2D.Double(x1, y1, POINT_DIAMETER, POINT_DIAMETER));
+                g2D.fill(new Ellipse2D.Double(-x1+1400, y1, POINT_DIAMETER, POINT_DIAMETER));
             }
         }
     }
