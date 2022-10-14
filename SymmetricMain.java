@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class SymmetricMain {
+public class SymmetricMain extends JFrame{
 
     private int arrLen;
 	private float[][] coords;
@@ -17,16 +17,38 @@ public class SymmetricMain {
 	private JLabel shortestPathLabel;
 	private JLabel path;
 
+	private Plot plot;
+	SymmetricMain() {
+		this.plot = new Plot();
+
+		GridBagConstraints constraints = new GridBagConstraints();
+        plot = new Plot();
+        setLayout(new GridBagLayout());
+        constraints.fill = GridBagConstraints.BOTH;
+        constraints.weightx = 1.0; constraints.weighty = 1.0;
+        constraints.gridx = 0; constraints.gridy = 1; constraints.gridwidth = 2;
+        constraints.insets = new Insets(5,10,5,10);
+        add(plot, constraints);
+
+		setSize(1300, 1000);
+		setLocationRelativeTo(null);
+		setVisible(true);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+	}
+
 	public void symmetricPanel() {
 
 		symmetricFrame = new JFrame();
 		symmetricPanel = new JPanel();
+
 		symmetricPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
 		symmetricPanel.setLayout(new GridLayout(0, 1));
 
 		ParseSymmetricData parseSymmetricData = new ParseSymmetricData();
 		coords = parseSymmetricData.parseSymmData();
 		this.arrLen = parseSymmetricData.arrLen;
+		plot.setCoords(coords);
+		plot.repaint();
 		// for(int i=0; i<arrLen; i++) {
 		// 		System.out.println(i+1 + " " + coords[i][0] + " " + coords[i][1]);
 		// 	}
